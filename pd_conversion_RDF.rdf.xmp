@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:ns0="https://w3id.org/biolink/vocab/"
+         xmlns:owl="http://www.w3.org/2002/07/owl#">
+
+  <rdf:Description rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/PD">
+    <rdf:type rdf:resource="https://w3id.org/biolink/vocab/Disease"/>
+    <rdfs:label xml:lang="es">Enfermedad de Parkinson</rdfs:label>
+    <ns0:description xml:lang="es">Trastorno neurodegenerativo caracterizado por la pérdida de neuronas dopaminérgicas y acumulación de cuerpos de Lewy.</ns0:description>
+    <ns0:has_phenotype>
+      <ns0:PhenotypicFeature rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/Bradicinesia">
+        <rdfs:label xml:lang="es">Bradicinesia</rdfs:label>
+        <owl:sameAs rdf:resource="http://purl.obolibrary.org/obo/HP_0002067"/>
+      </ns0:PhenotypicFeature>
+    </ns0:has_phenotype>
+
+    <ns0:has_phenotype rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/TemblorRepos"/>
+    <ns0:has_phenotype>
+      <ns0:PhenotypicFeature rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/Rigidez">
+        <rdfs:label xml:lang="es">Rigidez muscular</rdfs:label>
+        <owl:sameAs rdf:resource="http://purl.obolibrary.org/obo/HP_0002063"/>
+      </ns0:PhenotypicFeature>
+    </ns0:has_phenotype>
+
+    <ns0:has_phenotype>
+      <ns0:PhenotypicFeature rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/Depresion">
+        <rdfs:label xml:lang="es">Depresión</rdfs:label>
+        <ns0:category xml:lang="es">Sintoma no motor</ns0:category>
+      </ns0:PhenotypicFeature>
+    </ns0:has_phenotype>
+
+    <ns0:has_phenotype>
+      <ns0:PhenotypicFeature rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/TrastornoSueno">
+        <rdfs:label xml:lang="es">Trastornos del sueño</rdfs:label>
+        <owl:sameAs rdf:resource="http://purl.obolibrary.org/obo/HP_0002360"/>
+      </ns0:PhenotypicFeature>
+    </ns0:has_phenotype>
+
+    <ns0:has_phenotype>
+      <ns0:PhenotypicFeature rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/DeterioroCognitivo">
+        <rdfs:label xml:lang="es">Deterioro cognitivo</rdfs:label>
+        <owl:sameAs rdf:resource="http://purl.obolibrary.org/obo/HP_0100543"/>
+      </ns0:PhenotypicFeature>
+    </ns0:has_phenotype>
+
+    <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/MONDO_0005180"/>
+  </rdf:Description>
+
+  <ns0:PhenotypicFeature rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/TemblorRepos">
+    <rdfs:label xml:lang="es">Temblor en reposo</rdfs:label>
+    <owl:sameAs rdf:resource="http://purl.obolibrary.org/obo/HP_0002322"/>
+  </ns0:PhenotypicFeature>
+
+  <ns0:PhenotypicFeature rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/InestabilidadPostural">
+    <rdfs:label xml:lang="es">Inestabilidad postural</rdfs:label>
+    <owl:sameAs rdf:resource="http://purl.obolibrary.org/obo/HP_0002172"/>
+  </ns0:PhenotypicFeature>
+
+  <ns0:PathologicalProcess rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/AgregacionSinucleina">
+    <rdfs:label xml:lang="es">Agregación de Alpha-sinucleína (Cuerpos de Lewy)</rdfs:label>
+    <ns0:causes rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/PD"/>
+    <ns0:occurs_in rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/SustanciaNegra"/>
+  </ns0:PathologicalProcess>
+
+  <ns0:PathologicalProcess rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/PerdidaNeuronal">
+    <rdfs:label xml:lang="es">Pérdida de neuronas dopaminérgicas</rdfs:label>
+    <ns0:causes rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/PD"/>
+    <ns0:occurs_in rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/SustanciaNegra"/>
+  </ns0:PathologicalProcess>
+
+  <ns0:PathologicalProcess rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/DisfuncionMitocondrial">
+    <rdfs:label xml:lang="es">Disfunción Mitocondrial</rdfs:label>
+    <ns0:causes rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/PD"/>
+    <ns0:correlated_with rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/EstresOxidativo"/>
+  </ns0:PathologicalProcess>
+
+  <ns0:PathologicalProcess rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/FalloLisosomal">
+    <rdfs:label xml:lang="es">Disfunción Lisosomal</rdfs:label>
+    <ns0:causes rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/AgregacionSinucleina"/>
+  </ns0:PathologicalProcess>
+
+  <ns0:PathologicalProcess rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/Neuroinflamacion">
+    <rdfs:label xml:lang="es">Neuroinflamación</rdfs:label>
+    <ns0:mediated_by rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/Microglia"/>
+  </ns0:PathologicalProcess>
+
+  <ns0:DiagnosticProcedure rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/RT_QuIC">
+    <rdfs:label xml:lang="es">RT-QuIC</rdfs:label>
+    <ns0:description xml:lang="es">Amplificación de semillas de proteínas mal plegadas</ns0:description>
+    <ns0:detects rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/AgregacionSinucleina"/>
+    <ns0:has_input>
+      <ns0:AnatomicalEntity rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/LiquidoCefalorraquideo">
+        <rdfs:label xml:lang="es">Líquido Cefalorraquídeo</rdfs:label>
+        <owl:sameAs rdf:resource="http://purl.obolibrary.org/obo/UBERON_0001359"/>
+      </ns0:AnatomicalEntity>
+    </ns0:has_input>
+
+  </ns0:DiagnosticProcedure>
+
+  <ns0:Gene rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/SNCA">
+    <rdfs:label>SNCA</rdfs:label>
+    <ns0:gene_associated_with_condition rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/PD"/>
+    <ns0:has_gene_product>
+      <ns0:Protein rdf:about="http://purl.uniprot.org/uniprot/P37840">
+        <rdfs:label>Alpha-synuclein</rdfs:label>
+        <ns0:participates_in rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/AgregacionSinucleina"/>
+        <ns0:expressed_in>
+          <ns0:CellularComponent rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/Sinapsis">
+            <rdfs:label>Sinapsis</rdfs:label>
+            <owl:sameAs rdf:resource="http://purl.obolibrary.org/obo/GO_0045202"/>
+          </ns0:CellularComponent>
+        </ns0:expressed_in>
+
+      </ns0:Protein>
+    </ns0:has_gene_product>
+
+  </ns0:Gene>
+
+  <ns0:Gene rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/LRRK2">
+    <rdfs:label>LRRK2</rdfs:label>
+    <ns0:gene_associated_with_condition rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/PD"/>
+    <ns0:has_gene_product>
+      <ns0:Protein rdf:about="http://purl.uniprot.org/uniprot/Q5S007">
+        <rdfs:label>Leucine-rich repeat kinase 2</rdfs:label>
+        <ns0:molecular_activity rdf:resource="https://w3id.org/biolink/vocab/KinaseActivity"/>
+        <ns0:participates_in rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/FalloLisosomal"/>
+        <ns0:participates_in rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/TraficoVesicular"/>
+        <ns0:participates_in rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/Neuroinflamacion"/>
+        <ns0:expressed_in rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/Microglia"/>
+      </ns0:Protein>
+    </ns0:has_gene_product>
+
+  </ns0:Gene>
+
+  <ns0:Gene rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/PRKN">
+    <rdfs:label>PRKN</rdfs:label>
+    <ns0:gene_associated_with_condition rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/PD"/>
+    <ns0:has_gene_product rdf:resource="http://purl.uniprot.org/uniprot/O60260"/>
+  </ns0:Gene>
+
+  <ns0:Protein rdf:about="http://purl.uniprot.org/uniprot/O60260">
+    <rdfs:label>E3 ubiquitin-protein ligase parkin</rdfs:label>
+    <ns0:molecular_activity rdf:resource="https://w3id.org/biolink/vocab/UbiquitinLigaseActivity"/>
+    <ns0:participates_in rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/Mitofagia"/>
+  </ns0:Protein>
+
+  <ns0:Gene rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/PINK1">
+    <rdfs:label>PINK1</rdfs:label>
+    <ns0:gene_associated_with_condition rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/PD"/>
+    <ns0:has_gene_product>
+      <ns0:Protein rdf:about="http://purl.uniprot.org/uniprot/Q9BXM7">
+        <rdfs:label>Serine/threonine-protein kinase PINK1</rdfs:label>
+        <ns0:participates_in rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/Mitofagia"/>
+        <ns0:interacts_with rdf:resource="http://purl.uniprot.org/uniprot/O60260"/>
+      </ns0:Protein>
+    </ns0:has_gene_product>
+
+  </ns0:Gene>
+
+  <ns0:Gene rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/GBA">
+    <rdfs:label>GBA</rdfs:label>
+    <ns0:gene_associated_with_condition rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/PD"/>
+    <ns0:has_gene_product>
+      <ns0:Protein rdf:about="http://purl.uniprot.org/uniprot/P04062">
+        <rdfs:label>Glucosylceramidase</rdfs:label>
+        <ns0:participates_in rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/FalloLisosomal"/>
+      </ns0:Protein>
+    </ns0:has_gene_product>
+
+  </ns0:Gene>
+
+  <ns0:Gene rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/ATP13A2">
+    <rdfs:label>ATP13A2</rdfs:label>
+    <ns0:gene_associated_with_condition rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/PD"/>
+    <ns0:participates_in rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/FalloLisosomal"/>
+  </ns0:Gene>
+
+  <ns0:Gene rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/VPS35">
+    <rdfs:label>VPS35</rdfs:label>
+    <ns0:gene_associated_with_condition rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/PD"/>
+    <ns0:participates_in rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/TraficoVesicular"/>
+  </ns0:Gene>
+
+  <ns0:Drug rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/Levodopa">
+    <rdfs:label>Levodopa</rdfs:label>
+    <ns0:treats rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/PD"/>
+    <ns0:mechanism_of_action xml:lang="es">Precursor de dopamina</ns0:mechanism_of_action>
+    <owl:sameAs rdf:resource="http://purl.obolibrary.org/obo/CHEBI_15765"/>
+  </ns0:Drug>
+
+  <ns0:Procedure rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/EstimulacionCerebral">
+    <rdfs:label xml:lang="es">Estimulación Cerebral Profunda (DBS)</rdfs:label>
+    <ns0:treats rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/TemblorRepos"/>
+  </ns0:Procedure>
+
+  <ns0:AnatomicalEntity rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/SustanciaNegra">
+    <rdfs:label xml:lang="es">Sustancia Negra</rdfs:label>
+    <owl:sameAs rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002038"/>
+  </ns0:AnatomicalEntity>
+
+  <ns0:Cell rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/Microglia">
+    <rdfs:label>Microglia</rdfs:label>
+    <owl:sameAs rdf:resource="http://purl.obolibrary.org/obo/CL_0000129"/>
+  </ns0:Cell>
+
+  <ns0:BiologicalProcess rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/Mitofagia">
+    <rdfs:label xml:lang="es">Mitofagia</rdfs:label>
+    <ns0:prevented_by rdf:resource="http://dayhoff.inf.um.es/graph/parkinson/resource/DisfuncionMitocondrial"/>
+  </ns0:BiologicalProcess>
+
+  <ns0:BiologicalProcess rdf:about="http://dayhoff.inf.um.es/graph/parkinson/resource/TraficoVesicular">
+    <rdfs:label xml:lang="es">Tráfico Vesicular</rdfs:label>
+  </ns0:BiologicalProcess>
+
+</rdf:RDF>

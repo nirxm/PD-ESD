@@ -1,0 +1,185 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix biolink: <https://w3id.org/biolink/vocab/> .
+@prefix up: <http://purl.uniprot.org/uniprot/> .
+@prefix hp: <http://purl.obolibrary.org/obo/HP_> .
+@prefix chebi: <http://purl.obolibrary.org/obo/CHEBI_> .
+@prefix uberon: <http://purl.obolibrary.org/obo/UBERON_> .
+@prefix pd_r: <http://dayhoff.inf.um.es/graph/parkinson/resource/> .
+@prefix pd_o: <http://dayhoff.inf.um.es/graph/parkinson/ontology/> .
+
+### 1. Definición de la Enfermedad y Fenotipos (Síntomas) ###
+pd_r:PD a biolink:Disease ;
+    rdfs:label "Enfermedad de Parkinson"@es ;
+    biolink:description "Trastorno neurodegenerativo caracterizado por la pérdida de neuronas dopaminérgicas y acumulación de cuerpos de Lewy."@es ;
+    biolink:has_phenotype pd_r:Bradicinesia, pd_r:TemblorRepos, 
+                          pd_r:Rigidez, pd_r:Depresion, 
+                          pd_r:TrastornoSueno, pd_r:DeterioroCognitivo ;
+    rdfs:seeAlso <http://purl.obolibrary.org/obo/MONDO_0005180> .
+
+# Síntomas Motores (enlazados a HPO)
+pd_r:Bradicinesia a biolink:PhenotypicFeature ;
+    rdfs:label "Bradicinesia"@es ;
+    owl:sameAs hp:0002067 .
+
+pd_r:TemblorRepos a biolink:PhenotypicFeature ;
+    rdfs:label "Temblor en reposo"@es ;
+    owl:sameAs hp:0002322 .
+
+pd_r:Rigidez a biolink:PhenotypicFeature ;
+    rdfs:label "Rigidez muscular"@es ;
+    owl:sameAs hp:0002063 .
+
+pd_r:InestabilidadPostural a biolink:PhenotypicFeature ;
+    rdfs:label "Inestabilidad postural"@es ;
+    owl:sameAs hp:0002172 .
+
+# Síntomas No Motores
+pd_r:Depresion a biolink:PhenotypicFeature ;
+    rdfs:label "Depresión"@es ;
+    biolink:category "Sintoma no motor"@es .
+
+pd_r:TrastornoSueno a biolink:PhenotypicFeature ;
+    rdfs:label "Trastornos del sueño"@es ;
+    owl:sameAs hp:0002360 .
+
+pd_r:DeterioroCognitivo a biolink:PhenotypicFeature ;
+    rdfs:label "Deterioro cognitivo"@es ;
+    owl:sameAs hp:0100543 .
+
+### 2. Hallmarks Patológicos y Biomarcadores ###
+pd_r:AgregacionSinucleina a biolink:PathologicalProcess ;
+    rdfs:label "Agregación de Alpha-sinucleína (Cuerpos de Lewy)"@es ;
+    biolink:causes pd_r:PD ;
+    biolink:occurs_in pd_r:SustanciaNegra .
+
+pd_r:PerdidaNeuronal a biolink:PathologicalProcess ;
+    rdfs:label "Pérdida de neuronas dopaminérgicas"@es ;
+    biolink:causes pd_r:PD ;
+    biolink:occurs_in pd_r:SustanciaNegra .
+
+pd_r:DisfuncionMitocondrial a biolink:PathologicalProcess ;
+    rdfs:label "Disfunción Mitocondrial"@es ;
+    biolink:causes pd_r:PD ;
+    biolink:correlated_with pd_r:EstresOxidativo .
+
+pd_r:FalloLisosomal a biolink:PathologicalProcess ;
+    rdfs:label "Disfunción Lisosomal"@es ;
+    biolink:causes pd_r:AgregacionSinucleina .
+
+pd_r:Neuroinflamacion a biolink:PathologicalProcess ;
+    rdfs:label "Neuroinflamación"@es ;
+    biolink:mediated_by pd_r:Microglia .
+
+# Diagnóstico (RT-QuIC)
+pd_r:RT_QuIC a biolink:DiagnosticProcedure ;
+    rdfs:label "RT-QuIC"@es ;
+    biolink:description "Amplificación de semillas de proteínas mal plegadas"@es ;
+    biolink:detects pd_r:AgregacionSinucleina ;
+    biolink:has_input pd_r:LiquidoCefalorraquideo .
+
+### 3. Genética: Genes y Proteínas (Enlace con UniProt) ###
+
+# --- SNCA ---
+pd_r:SNCA a biolink:Gene ;
+    rdfs:label "SNCA" ;
+    biolink:gene_associated_with_condition pd_r:PD ;
+    biolink:has_gene_product up:P37840 .
+
+up:P37840 a biolink:Protein ;
+    rdfs:label "Alpha-synuclein" ;
+    biolink:participates_in pd_r:AgregacionSinucleina ;
+    biolink:expressed_in pd_r:Sinapsis .
+
+# --- LRRK2 ---
+pd_r:LRRK2 a biolink:Gene ;
+    rdfs:label "LRRK2" ;
+    biolink:gene_associated_with_condition pd_r:PD ;
+    biolink:has_gene_product up:Q5S007 .
+
+up:Q5S007 a biolink:Protein ;
+    rdfs:label "Leucine-rich repeat kinase 2" ;
+    biolink:molecular_activity biolink:KinaseActivity ;
+    biolink:participates_in pd_r:FalloLisosomal, pd_r:TraficoVesicular, pd_r:Neuroinflamacion ;
+    biolink:expressed_in pd_r:Microglia .
+
+# --- PRKN (Parkin) ---
+pd_r:PRKN a biolink:Gene ;
+    rdfs:label "PRKN" ;
+    biolink:gene_associated_with_condition pd_r:PD ;
+    biolink:has_gene_product up:O60260 .
+
+up:O60260 a biolink:Protein ;
+    rdfs:label "E3 ubiquitin-protein ligase parkin" ;
+    biolink:molecular_activity biolink:UbiquitinLigaseActivity ;
+    biolink:participates_in pd_r:Mitofagia .
+
+# --- PINK1 ---
+pd_r:PINK1 a biolink:Gene ;
+    rdfs:label "PINK1" ;
+    biolink:gene_associated_with_condition pd:PD ;
+    biolink:has_gene_product up:Q9BXM7 .
+
+up:Q9BXM7 a biolink:Protein ;
+    rdfs:label "Serine/threonine-protein kinase PINK1" ;
+    biolink:participates_in pd_r:Mitofagia ;
+    biolink:interacts_with up:O60260 .
+
+# --- GBA ---
+pd_r:GBA a biolink:Gene ;
+    rdfs:label "GBA" ;
+    biolink:gene_associated_with_condition pd_r:PD ;
+    biolink:has_gene_product up:P04062 .
+
+up:P04062 a biolink:Protein ;
+    rdfs:label "Glucosylceramidase" ;
+    biolink:participates_in pd_r:FalloLisosomal .
+
+# --- Genes de Riesgo Adicionales ---
+pd_r:ATP13A2 a biolink:Gene ;
+    rdfs:label "ATP13A2" ;
+    biolink:gene_associated_with_condition pd_r:PD ;
+    biolink:participates_in pd_r:FalloLisosomal .
+
+pd_r:VPS35 a biolink:Gene ;
+    rdfs:label "VPS35" ;
+    biolink:gene_associated_with_condition pd_r:PD ;
+    biolink:participates_in pd_r:TraficoVesicular .
+
+### 4. Tratamientos ###
+pd_r:Levodopa a biolink:Drug ;
+    rdfs:label "Levodopa" ;
+    biolink:treats pd_r:PD ;
+    biolink:mechanism_of_action "Precursor de dopamina"@es ;
+    owl:sameAs chebi:15765 .
+
+pd_r:EstimulacionCerebral a biolink:Procedure ;
+    rdfs:label "Estimulación Cerebral Profunda (DBS)"@es ;
+    biolink:treats pd_r:TemblorRepos .
+
+### 5. Localización Anatómica y Celular (Ontologías Externas) ###
+pd_r:SustanciaNegra a biolink:AnatomicalEntity ;
+    rdfs:label "Sustancia Negra"@es ;
+    owl:sameAs uberon:0002038 .
+
+pd_r:LiquidoCefalorraquideo a biolink:AnatomicalEntity ;
+    rdfs:label "Líquido Cefalorraquídeo"@es ;
+    owl:sameAs uberon:0001359 .
+
+pd_r:Microglia a biolink:Cell ;
+    rdfs:label "Microglia" ;
+    owl:sameAs <http://purl.obolibrary.org/obo/CL_0000129> .
+
+pd_r:Sinapsis a biolink:CellularComponent ;
+    rdfs:label "Sinapsis" ;
+    owl:sameAs <http://purl.obolibrary.org/obo/GO_0045202> .
+
+### 6. Procesos Biológicos Auxiliares ###
+pd_r:Mitofagia a biolink:BiologicalProcess ;
+    rdfs:label "Mitofagia"@es ;
+    biolink:prevented_by pd_r:DisfuncionMitocondrial .
+
+pd_r:TraficoVesicular a biolink:BiologicalProcess ;
+    rdfs:label "Tráfico Vesicular"@es .
